@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Button Slider</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .carousel-inner {
+            display: flex;
+            justify-content: center;
+        }
+        .carousel-item {
+            flex: 0 0 auto;
+            max-width: 33.3333%;
+            text-align: center;
+        }
+        .carousel-item > div {
+            display: inline-block;
+            padding: 10px;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            height: auto;
+            background-color: black;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            z-index: 1;
+        }
+        .carousel-control-prev {
+            left: 20px;
+        }
+        .carousel-control-next {
+            right: 50px;
+        }
+        .button-slider {
+            text-align: center;
+        }
+        .button-slider .btn {
+            margin: 5px;
+        }
+        .custom-button {
+            display: inline-block;
+            text-align: center;
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 10px;
+            width: 120px;
+            height: 170px;
+        }
+        .big-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .small-text {
+            font-size: 0.8rem;
+        }
+        .custom-button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="buttonCarousel" class="carousel slide" data-ride="carousel"  data-interval="false">
+    <div class="carousel-inner button-slider">
+        <div class="carousel-item active">
+            <div>
+                <div class="container text-center mt-5">
+                    <div class="custom-button onclick="buttonClicked()">
+                        <div class="big-number">1</div>
+                        <div class="small-text">Button Text</div>
+                    </div>
+                </div>
+                <div class="container text-center mt-5">
+                    <div class="custom-button onclick="buttonClicked()">
+                        <div class="big-number">2</div>
+                        <div class="small-text">Button Text</div>
+                    </div>
+                </div>
+                <div class="container text-center mt-5">
+                    <div class="custom-button onclick="buttonClicked()">
+                        <div class="big-number">3</div>
+                        <div class="small-text">Button Text</div>
+                    </div>
+                </div>
+                <div class="container text-center mt-5">
+                    <div class="custom-button onclick="buttonClicked()">
+                        <div class="big-number">4</div>
+                        <div class="small-text">Button Text</div>
+                    </div>
+                </div>
+                <div class="container text-center mt-5">
+                    <div class="custom-button onclick="buttonClicked()">
+                        <div class="big-number">5</div>
+                        <div class="small-text">Button Text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div>
+                <button type="button" class="btn btn-danger">Button 4</button>
+                <button type="button" class="btn btn-warning">Button 5</button>
+                <button type="button" class="btn btn-info">Button 6</button>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div>
+                <button type="button" class="btn btn-light">Button 7</button>
+                <button type="button" class="btn btn-dark">Button 8</button>
+                <button type="button" class="btn btn-primary">Button 9</button>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-target="#buttonCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-target="#buttonCarousel" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </button>
+</div>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function buttonClicked() {
+        alert("Button Clicked!");
+        // You can add more functionality here
+    }
+</script>
+</body>
+</html>
