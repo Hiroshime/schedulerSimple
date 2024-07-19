@@ -4,7 +4,7 @@ from user_views import user_views
 from schedule_views import schedule_views
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
+app.config.from_pyfile('./config.py')
 app.register_blueprint(user_views)
 app.register_blueprint(schedule_views)
 db.init_app(app)
