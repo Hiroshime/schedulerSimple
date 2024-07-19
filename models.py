@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -24,4 +25,11 @@ class Session(db.Model):
     status = db.Column(db.String(30), nullable=False)
     user = db.relationship('User',backref=db.backref('sessions',lazy=True))
     registerdate = db.Column(db.DateTime, nullable=False)
+
+class WeekDays(db.Model):
+    id = db.Column(db.Integer,primary_key=True)
+    name = db.Column(db.String(10),nullable=False)
+    opening_hour = db.Column(db.DateTime,nullable=False)
+    closing_hour = db.Column(db.DateTime,nullable=False)
+    session_length = db.Column(db.Integer,nullable=False)
 
