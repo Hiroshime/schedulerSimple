@@ -10,7 +10,8 @@ class User(db.Model):
     registerdate = db.Column(db.DateTime,nullable=False)
     email = db.Column(db.String(25),nullable=True)
     phone = db.Column(db.String(25),nullable=True)
-
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'))
+    group = db.relationship('Group', backref=db.backref('users', lazy=True))
 
 class Group(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -19,17 +19,17 @@ def authenticate():
     if user and (user.birthdate == birth):
         session['logged'] = user.id
         flash('Ola ' + user.name)
-        return redirect(url_for('schedule_views.list'))
+        return redirect(url_for('schedule_views.list_sessions'))
     else:
         flash ('Usuario nao encontrado')
         return redirect(url_for('user_views.login'))
 
 @user_views.route('/newUser')
-def newUser():
+def new_user():
     return render_template('createuser.html', title='Novo Usuario')
 
 @user_views.route('/createUser', methods=['POST'])
-def createUser():
+def create_user():
     name = request.form['name']
     cpf = request.form['cpf']
     birthdate = request.form['birthdate']
@@ -40,11 +40,11 @@ def createUser():
 
     if user:
         flash('Usuario ja existe')
-        return redirect(url_for('user_views.newUser'))
+        return redirect(url_for('user_views.new_user'))
 
     new_user = User(name=name,cpf=cpf,birthdate=datetime.strptime(birthdate,'%Y-%m-%d'),email=email,phone=phone,registerdate=datetime.now())
     db.session.add(new_user)
     db.session.commit()
 
     flash('Usuario cadastrado com sucesso')
-    return redirect(url_for('schedule_views.list'))
+    return redirect(url_for('schedule_views.list_sessions'))
