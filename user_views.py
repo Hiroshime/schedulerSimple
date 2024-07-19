@@ -36,7 +36,7 @@ def create_user():
     email = request.form['email']
     phone = request.form['phone']
 
-    user = User.query.filter_by(name=name).first()
+    user = User.query.filter_by(cpf=cpf).first()
 
     if user:
         flash('Usuario ja existe')
